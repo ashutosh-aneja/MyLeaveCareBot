@@ -1,0 +1,44 @@
+﻿@model MyLeaveCareBot.Models.EmployeeDetail
+@{
+    ViewData["Title"] = "EmployeePortal";
+}
+
+<h3>Employee Portal Welcome</h3>
+
+@{
+    var user = ViewData["EmployeeDetail"] as EmployeeDetail;
+}
+<style>
+    body {
+        background-image: url('https://encrypted-tbn0.gstatic.com/images?q=tbn%3AANd9GcSPU-QIMpCmFXk4LqFbEGgtMdwWmAEXGiIMGA&usqp=CAU');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 150% 150%;
+    }
+</style>
+<nav class="navbar navbar-light bg-light">
+    <a class="navbar-brand" href="#">
+        <i class="fa fa-cubes" aria-hidden="true"></i>
+        Employee Portal
+    </a>
+    <ul class="nav nav-pills">
+        <li class="nav-item ">
+            <button class="badge-light">   <a asp-action="Create" asp-controller="ApplyLeaves">Apply Leave</a> </button>
+        </li>
+        <li class="nav-item">
+            <button class="badge-light">   <a asp-action="Index" asp-controller="ApplyLeaves">See My Status</a> </button>
+        </li>
+
+    </ul>
+</nav>
+<table>
+    <tr>
+        <td><h3>Employee Name-</h3></td>
+        <td><h2>@user.EmpName</h2></td>
+    </tr>
+    <tr>
+        <td><h3>Employee ID-</h3></td>
+        <td><h2>@user.EmpId</h2></td>
+
+    </tr>
+</table>  

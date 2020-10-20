@@ -1,0 +1,81 @@
+﻿@model IEnumerable<MyLeaveCareBot.Models.ApplyLeave>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+
+    <a asp-action="HRPortal" asp-controller="HRManagement">Back to HR Portal</a>
+    <a asp-action="EmployeePortal1" asp-controller="ApplyLeaves">Back to Employee Portal</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Emp.EmpName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeaveType)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeavestartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeaveEndDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.LeaveReason)
+            </th>
+
+            <th>
+                @Html.DisplayNameFor(model => model.Status)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Emp.EmpEmail)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Emp.EmpId)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emp.EmpName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LeaveType)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LeavestartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LeaveEndDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LeaveReason)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emp.EmpEmail)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Emp.EmpId)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-controller="ApplyLeaves" asp-route-id="@item.Applyid">Update Status</a>||
+                <a asp-action="Delete" asp-controller="ApplyLeaves" asp-route-id="@item.Applyid">Delete</a>
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

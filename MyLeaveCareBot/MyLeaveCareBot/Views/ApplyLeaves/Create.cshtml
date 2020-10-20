@@ -1,0 +1,55 @@
+﻿@model MyLeaveCareBot.Models.ApplyLeave
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+
+
+<h4>Apply Leave</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="EmpId" class="control-label"></label>
+                <select asp-for="EmpId" class="form-control" asp-items="ViewBag.EmpId"></select>
+            </div>
+            <div class="form-group">
+                <label asp-for="LeaveType" class="control-label"></label>
+                <select asp-for="LeaveType" class="form-control">
+                    <option value="Sick Leave">Sick Leave</option>
+                    <option value="Vacation Leave">Vacation Leave</option>
+                    <option value="Covid-19">Covid-19</option>
+                </select>
+
+            </div>
+            <div class="form-group">
+                <label asp-for="LeavestartDate" class="control-label"></label>
+                <input asp-for="LeavestartDate" class="form-control" />
+                <span asp-validation-for="LeavestartDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LeaveEndDate" class="control-label"></label>
+                <input asp-for="LeaveEndDate" class="form-control" />
+                <span asp-validation-for="LeaveEndDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="LeaveReason" class="control-label"></label>
+                <input asp-for="LeaveReason" class="form-control" />
+                <span asp-validation-for="LeaveReason" class="text-danger"></span>
+            </div>
+            
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="EmployeePortal1" asp-controller="EmployeeManagement">Back to Portal</a>
+</div>
+
